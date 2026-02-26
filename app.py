@@ -1395,6 +1395,30 @@ def api_rel_full_report():
 
 
 # ══════════════════════════════════════════════════════════════════════
+# APPENDICES: FILE LISTING
+# ══════════════════════════════════════════════════════════════════════
+
+@app.route("/api/appendices")
+def api_appendices():
+    """List available appendix PDF and Excel files."""
+    appendix_dir = os.path.join(app.static_folder, "appendices")
+    result = {"pdfs": {}, "excel": []}
+    if os.path.isdir(appendix_dir):
+        for fname in sorted(os.listdir(appendix_dir)):
+            lower = fname.lower()
+            if lower.endswith(".pdf") and lower.startswith("appendix_"):
+                # Extract number: Appendix_01.pdf -> "1"
+                try:
+                    num = str(int(fname.split("_")[1].split(".")[0]))
+                    result["pdfs"][num] = fname
+                except (IndexError, ValueError):
+                    pass
+            elif lower.endswith((".xlsx", ".xls", ".csv")):
+                result["excel"].append(fname)
+    return jsonify(result)
+
+
+# ══════════════════════════════════════════════════════════════════════
 # ENTRY POINT
 # ══════════════════════════════════════════════════════════════════════
 
