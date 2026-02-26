@@ -573,6 +573,27 @@ nav button.active { color:var(--accent); border-bottom-color:var(--accent); }
   .compare-grid { grid-template-columns:1fr 1fr; gap:0.3cm; }
   * { color-adjust:exact; -webkit-print-color-adjust:exact; }
 }
+/* Appendices */
+.apx-item { border:1px solid var(--border); border-radius:var(--radius); margin-bottom:0.5rem; overflow:hidden; }
+.apx-header { display:flex; align-items:center; gap:0.6rem; padding:0.6rem 0.8rem; cursor:pointer; transition:background 0.15s; }
+.apx-header:hover { background:rgba(123,163,204,0.06); }
+.apx-num { font-family:'JetBrains Mono',monospace; font-size:0.72rem; font-weight:700; color:var(--accent); min-width:1.8rem; }
+.apx-title { flex:1; font-size:0.82rem; font-weight:600; color:var(--text); }
+.apx-badge { font-size:0.65rem; padding:0.1rem 0.4rem; border-radius:3px; font-weight:600; }
+.apx-badge-pdf { background:rgba(123,163,204,0.15); color:var(--accent); }
+.apx-badge-pending { background:rgba(255,255,255,0.06); color:var(--text-dim); }
+.apx-chevron { color:var(--text-dim); font-size:0.7rem; transition:transform 0.2s; }
+.apx-item.open .apx-chevron { transform:rotate(90deg); }
+.apx-body { display:none; border-top:1px solid var(--border); }
+.apx-item.open .apx-body { display:block; }
+.apx-desc { padding:0.5rem 0.8rem; font-size:0.76rem; color:var(--text-dim); line-height:1.7; }
+.apx-viewer { width:100%; height:75vh; border:none; background:var(--bg-surface); }
+.apx-dl-row { display:flex; align-items:center; gap:0.6rem; padding:0.4rem 0.8rem; border-bottom:1px solid var(--border); font-size:0.78rem; }
+.apx-dl-row:last-child { border-bottom:none; }
+.apx-dl-icon { font-size:0.9rem; }
+.apx-dl-name { flex:1; color:var(--text); font-weight:500; }
+.apx-dl-link { color:var(--accent); text-decoration:none; font-size:0.75rem; font-weight:600; }
+.apx-dl-link:hover { text-decoration:underline; }
 </style>
 </head>
 <body>
@@ -590,6 +611,7 @@ nav button.active { color:var(--accent); border-bottom-color:var(--accent); }
     <button data-page="operations">M1: Analytical Ops</button>
     <button data-page="ecosystem">M1: Ecosystem</button>
     <button data-page="relational">M2: Relational</button>
+    <button data-page="appendices">Appendices</button>
   </nav>
 </header>
 
@@ -672,6 +694,10 @@ nav button.active { color:var(--accent); border-bottom-color:var(--accent); }
       <div style="display:grid;grid-template-columns:160px 1fr;gap:0.8rem;padding:0.5rem 0;">
         <div><a href="#relational" class="dash-nav-link" data-page="relational" style="color:var(--accent);font-weight:600;font-size:0.85rem;text-decoration:none;cursor:pointer;">M2: Relational</a></div>
         <div style="font-size:0.78rem;color:var(--text-dim);line-height:1.6;">The second model analyzes relational ecosystems: partnership diversity, relationship types, network reach, inter-case connectivity, latent cluster analysis, agent-agent interactions, matched pair comparisons, and relational sensitivity testing.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:160px 1fr;gap:0.8rem;padding:0.5rem 0;">
+        <div><a href="#appendices" class="dash-nav-link" data-page="appendices" style="color:var(--accent);font-weight:600;font-size:0.85rem;text-decoration:none;cursor:pointer;">Appendices</a></div>
+        <div style="font-size:0.78rem;color:var(--text-dim);line-height:1.6;">Dissertation appendices: definitions, sovereignty dimensions, master data tables, case equations, condition and outcome analyses, recursive logic patterns, relational density scoring, and codebase documentation. Includes embedded PDF viewers and downloadable data files.</div>
       </div>
     </div>
     </div>
@@ -1137,6 +1163,17 @@ nav button.active { color:var(--accent); border-bottom-color:var(--accent); }
   <div id="eco-sovereignty" class="eco-section"></div>
   <div id="eco-patterns" class="eco-section"></div>
   <div id="eco-validation" class="eco-section"></div>
+</div>
+
+<div id="page-appendices" class="page">
+  <h2 class="section-title">Dissertation Appendices</h2>
+  <p style="font-size:0.82rem;color:var(--text-dim);margin-bottom:0.6rem;line-height:1.7;">
+    The appendices to <em>Digital Rights Projects: Collective Capacities for Democratizing Technology</em>.
+    Click any appendix to expand and view the embedded document. Data files referenced in the appendices are available for download below.
+  </p>
+  <div id="appendix-status" style="font-size:0.72rem;color:var(--text-dim);margin-bottom:1rem;"></div>
+  <div id="appendix-toc"></div>
+  <div id="appendix-data-files" style="margin-top:1.5rem;"></div>
 </div>
 
 <script>
@@ -6328,6 +6365,154 @@ async function loadEcoValidation() {
 
 
 /* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550
+   APPENDICES
+   \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 */
+let apxLoaded = false;
+
+const APPENDIX_META = [
+  { num:1, title:'Definition of Terms', desc:'Key terms and their definitions as used throughout the dissertation, establishing the analytical vocabulary for digital rights, sovereignty, and community-led technology governance.' },
+  { num:2, title:'Detailed Background Research on the Dimensions of Digital Sovereignty', desc:'Extended analysis of the sovereignty stack dimensions: technical, infrastructure, territorial, economic, ecological, collective rights, and epistemic sovereignty, with literature connections and empirical illustrations.' },
+  { num:3, title:'Links to Master Conditions and Outcomes Tables', desc:'Reference tables produced during the qualitative content analysis: the master conditions-outcomes table, quantitative and qualitative cross-impact matrices, and case positioning matrices. Data files are available for download below.', hasExcel:true },
+  { num:4, title:'Full List of 43 Equations', desc:'The complete set of case equations, one per case, specifying how conditions combine through mechanisms to produce outcomes. These equations are parsed into the production rules that drive the agent-based model.' },
+  { num:5, title:'Member Case Tables per Condition Category', desc:'For each condition category across all eleven condition types, the member cases exhibiting that category, drawn from the qualitative content analysis (Chapter 4).' },
+  { num:6, title:'Member Case Tables per Outcome Group', desc:'For each outcome group (Democratic Practices, Community Value, Balance, Impact), the member cases and their outcome category profiles, drawn from the qualitative content analysis (Chapter 4).' },
+  { num:7, title:'Detailed Outcome Category Summary', desc:'Extended descriptions and analysis of all 25 outcome categories across the four outcome groups, with cross-case patterns and illustrative examples.' },
+  { num:8, title:'Detailed Economic Sector Analysis from Organizational Typology', desc:'Analysis of how the four organizational types distribute across economic sectors, extending the typology presented in Chapter 5.' },
+  { num:9, title:'Condition Ranges and Cross-Type Connections', desc:'Detailed characterization of condition ranges for all eleven condition types, including cross-type connections showing how conditions interact across types.' },
+  { num:10, title:'Analysis of Outcome Groups', desc:'Extended analysis of the four outcome groups, including within-group patterns, cross-group relationships, and connections to sovereignty construction.' },
+  { num:11, title:'Recursive Logic Analysis and Mechanism Mapping', desc:'Inventory of 17 recursive D-A-S patterns identified from Chapter 5, convergence analysis mapping mechanisms to recursive patterns, and the mechanism-constrained assignment logic used in the agent-based model.' },
+  { num:12, title:'Relational Density Scoring', desc:'Complete relational density scoring table for all 43 cases across four dimensions (partner diversity, relationship type range, network reach, inter-case connectivity), with composite scores and partnership category assignments.' },
+  { num:13, title:'Web Scraping Script', desc:'Python script used for systematic web-based data collection during the qualitative content analysis stage of the research.' },
+  { num:14, title:'Sample Profile from the Output of the Qualitative Content Analysis', desc:'A complete case profile (Digital Empowerment Foundation) illustrating the depth and structure of the qualitative content analysis output. All 43 cases had a similar profile.' },
+  { num:15, title:'Agent-Based Model Codebase and Interactive Observatory', desc:'Documentation of the computational system: source code architecture, data pipeline, analytical capabilities, production rule mechanics, sovereignty computation, and reproducibility instructions. Links to the source code repository.' },
+];
+
+const EXCEL_FILES_META = [
+  { file:'Phase1a.xlsx', name:'Master Conditions and Outcomes Table', desc:'Complete master table with all conditions, challenges addressed, outcomes, mechanisms, and associated cases (Figure 1).' },
+  { file:'Phase3a.xlsx', name:'Quantitative Cross-Impact Matrix', desc:'Outcome categories vs. condition categories with case-count values (Figure 2).' },
+  { file:'Phase3b.xlsx', name:'Qualitative Cross-Impact Matrix', desc:'Outcome categories vs. condition categories with qualitative relationship descriptions (Figure 3).' },
+  { file:'Phase4b.xlsx', name:'Case Positioning Matrices (Conditions)', desc:'Qualitative and quantitative case positioning by condition categories and condition types (Figures 4 and 5).' },
+  { file:'Phase4d.xlsx', name:'Case Positioning Matrices (Outcomes)', desc:'Qualitative and quantitative case positioning by outcome categories and outcome groups (Figures 6 and 7).' },
+];
+
+async function loadAppendices() {
+  if (apxLoaded) return;
+  apxLoaded = true;
+
+  /* fetch available files */
+  let avail = {pdfs:{}, excel:[]};
+  try { avail = await api('appendices'); } catch(e) { /* no files yet */ }
+
+  const pdfCount = Object.keys(avail.pdfs).length;
+  const excelCount = avail.excel.length;
+  const statusEl = $('#appendix-status');
+  if (pdfCount === 0 && excelCount === 0) {
+    statusEl.textContent = 'No appendix files have been uploaded yet. Place PDF files (named Appendix_01.pdf through Appendix_15.pdf) and Excel files in the static/appendices/ folder.';
+    statusEl.style.color = 'var(--negative)';
+  } else {
+    statusEl.textContent = pdfCount + ' of 15 appendix PDFs available' + (excelCount > 0 ? ', ' + excelCount + ' data file' + (excelCount > 1 ? 's' : '') + ' available' : '') + '.';
+  }
+
+  /* render table of contents */
+  const toc = $('#appendix-toc');
+  toc.innerHTML = '';
+
+  for (const apx of APPENDIX_META) {
+    const hasPdf = !!avail.pdfs[String(apx.num)];
+    const pdfFile = avail.pdfs[String(apx.num)];
+    const numStr = String(apx.num).padStart(2, '0');
+
+    const item = h('div', {className:'apx-item'});
+
+    /* header row */
+    const header = h('div', {className:'apx-header'});
+    header.appendChild(h('span', {className:'apx-num'}, numStr));
+    header.appendChild(h('span', {className:'apx-title'}, apx.title));
+    if (hasPdf) {
+      header.appendChild(h('span', {className:'apx-badge apx-badge-pdf'}, 'PDF'));
+    } else {
+      header.appendChild(h('span', {className:'apx-badge apx-badge-pending'}, 'pending'));
+    }
+    header.appendChild(h('span', {className:'apx-chevron'}, '\u25B6'));
+    header.addEventListener('click', () => item.classList.toggle('open'));
+    item.appendChild(header);
+
+    /* body */
+    const body = h('div', {className:'apx-body'});
+    body.appendChild(h('div', {className:'apx-desc'}, apx.desc));
+
+    if (hasPdf) {
+      /* download link */
+      const dlBar = h('div', {style:'padding:0.3rem 0.8rem 0.5rem;display:flex;gap:1rem;align-items:center;'});
+      const dlLink = h('a', {href:'/static/appendices/' + pdfFile, target:'_blank', className:'apx-dl-link'}, 'Open in new tab');
+      const dlLink2 = h('a', {href:'/static/appendices/' + pdfFile, download:pdfFile, className:'apx-dl-link'}, 'Download');
+      dlBar.appendChild(dlLink);
+      dlBar.appendChild(dlLink2);
+      body.appendChild(dlBar);
+
+      /* embedded pdf viewer */
+      const viewer = h('iframe', {
+        className:'apx-viewer',
+        src:'/static/appendices/' + pdfFile,
+        title:'Appendix ' + numStr,
+        loading:'lazy',
+      });
+      body.appendChild(viewer);
+    } else {
+      body.appendChild(h('div', {style:'padding:0.8rem;font-size:0.76rem;color:var(--text-dim);font-style:italic;'}, 'PDF not yet uploaded. Place file named Appendix_' + numStr + '.pdf in static/appendices/.'));
+    }
+
+    /* special: Appendix 3 Excel file links */
+    if (apx.hasExcel) {
+      const exSec = h('div', {style:'padding:0.5rem 0.8rem;border-top:1px solid var(--border);'});
+      exSec.appendChild(h('div', {style:'font-size:0.78rem;font-weight:600;color:var(--text);margin-bottom:0.3rem;'}, 'Referenced Data Files'));
+      for (const ef of EXCEL_FILES_META) {
+        const hasFile = avail.excel.includes(ef.file);
+        const row = h('div', {className:'apx-dl-row'});
+        row.appendChild(h('span', {className:'apx-dl-icon'}, '\uD83D\uDCCA'));
+        const nameSpan = h('span', {className:'apx-dl-name'});
+        nameSpan.appendChild(h('div', {style:'font-size:0.78rem;'}, ef.name));
+        nameSpan.appendChild(h('div', {style:'font-size:0.68rem;color:var(--text-dim);'}, ef.desc));
+        row.appendChild(nameSpan);
+        if (hasFile) {
+          row.appendChild(h('a', {href:'/static/appendices/' + ef.file, download:ef.file, className:'apx-dl-link'}, 'Download'));
+        } else {
+          row.appendChild(h('span', {style:'font-size:0.68rem;color:var(--text-dim);font-style:italic;'}, 'not uploaded'));
+        }
+        exSec.appendChild(row);
+      }
+      body.appendChild(exSec);
+    }
+
+    item.appendChild(body);
+    toc.appendChild(item);
+  }
+
+  /* standalone data files section */
+  if (avail.excel.length > 0) {
+    const dfSec = $('#appendix-data-files');
+    dfSec.innerHTML = '';
+    dfSec.appendChild(h('div', {style:'font-size:0.9rem;font-weight:700;color:var(--text);margin-bottom:0.5rem;'}, 'Data Files'));
+    dfSec.appendChild(h('div', {style:'font-size:0.76rem;color:var(--text-dim);margin-bottom:0.6rem;line-height:1.6;'}, 'Excel files from the qualitative content analysis, cross-impact assessment, case positioning, and relational density scoring. These are the data sources read by the agent-based model.'));
+    const card = h('div', {className:'card', style:'padding:0;overflow:hidden;'});
+    for (const ef of EXCEL_FILES_META) {
+      const hasFile = avail.excel.includes(ef.file);
+      if (!hasFile) continue;
+      const row = h('div', {className:'apx-dl-row'});
+      row.appendChild(h('span', {className:'apx-dl-icon'}, '\uD83D\uDCCA'));
+      const nameSpan = h('span', {className:'apx-dl-name'});
+      nameSpan.appendChild(h('div', {style:'font-size:0.78rem;'}, ef.name));
+      nameSpan.appendChild(h('div', {style:'font-size:0.68rem;color:var(--text-dim);'}, ef.desc));
+      row.appendChild(nameSpan);
+      row.appendChild(h('a', {href:'/static/appendices/' + ef.file, download:ef.file, className:'apx-dl-link'}, 'Download'));
+      card.appendChild(row);
+    }
+    dfSec.appendChild(card);
+  }
+}
+
+
+/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550
    BOOT
    \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 */
 init();
@@ -6342,6 +6527,7 @@ init();
     if (page === 'relational') loadRelational();
     if (page === 'ecosystem') loadEcosystem();
     if (page === 'operations') loadOperations();
+    if (page === 'appendices') loadAppendices();
   }
 
   function handleHash() {
